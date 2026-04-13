@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="<%= description %>" />
+  <title><%= title %></title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+
+  <!-- QR Code Styling CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- ───────────── HEADER ───────────── -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo" aria-label="Qreative Studio Home">
+        <div class="logo__icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect x="2" y="2" width="11" height="11" rx="2" fill="url(#grad1)"/>
+            <rect x="19" y="2" width="11" height="11" rx="2" fill="url(#grad1)"/>
+            <rect x="2" y="19" width="11" height="11" rx="2" fill="url(#grad1)"/>
+            <rect x="19" y="19" width="5" height="5" rx="1" fill="url(#grad2)"/>
+            <rect x="26" y="19" width="5" height="5" rx="1" fill="url(#grad2)"/>
+            <rect x="19" y="26" width="5" height="5" rx="1" fill="url(#grad2)"/>
+            <defs>
+              <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#914FFF"/>
+                <stop offset="100%" stop-color="#3B7BF4"/>
+              </linearGradient>
+              <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#3B7BF4"/>
+                <stop offset="100%" stop-color="#914FFF"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo__text">Qreative<span class="logo__accent">Studio</span></span>
+      </a>
+
+      <nav class="header__nav" aria-label="Navegación principal">
+        <a href="#generator" class="nav__link">Generador</a>
+        <a href="#features" class="nav__link">Características</a>
+        <a href="#formats" class="nav__link">Formatos</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="btn btn--ghost btn--sm" id="btn-header-generate" onclick="document.getElementById('generator').scrollIntoView({behavior:'smooth'})">
+          <i data-feather="zap"></i> Crear QR
+        </button>
+      </div>
+
+      <button class="header__hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="header__mobile-nav" id="mobile-nav" aria-hidden="true">
+      <a href="#generator" class="nav__link--mobile">Generador</a>
+      <a href="#features" class="nav__link--mobile">Características</a>
+      <a href="#formats" class="nav__link--mobile">Formatos</a>
+      <a href="#faq" class="nav__link--mobile">FAQ</a>
+    </nav>
+  </header>
+
+  <!-- ───────────── HERO ───────────── -->
+  <section class="hero" id="home">
+    <div class="hero__bg-orbs">
+      <div class="orb orb--1"></div>
+      <div class="orb orb--2"></div>
+      <div class="orb orb--3"></div>
+    </div>
+    <div class="container hero__inner">
+      <div class="hero__badge">
+        <i data-feather="zap"></i>
+        <span>Ingeniería QR de última generación</span>
+      </div>
+      <h1 class="hero__title">
+        Crea códigos QR<br/>
+        <span class="hero__title--gradient">que impresionan</span>
+      </h1>
+      <p class="hero__description">
+        Diseña, personaliza y descarga códigos QR profesionales con logos, gradientes, formas únicas y múltiples formatos de exportación. Sin límites, sin marcas de agua.
+      </p>
+      <div class="hero__ctas">
+        <button class="btn btn--primary btn--lg" onclick="document.getElementById('generator').scrollIntoView({behavior:'smooth'})">
+          <i data-feather="cpu"></i> Generar QR ahora
+        </button>
+        <button class="btn btn--outline btn--lg" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">
+          <i data-feather="play-circle"></i> Ver características
+        </button>
+      </div>
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__value">∞</span>
+          <span class="stat__label">QRs generados</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__value">4</span>
+          <span class="stat__label">Tipos de datos</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__value">3</span>
+          <span class="stat__label">Formatos de exportación</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__value">100%</span>
+          <span class="stat__label">Gratis y sin límites</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── GENERATOR ───────────── -->
+  <section class="generator-section" id="generator">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Generador <span class="text--gradient">Profesional</span></h2>
+        <p class="section__subtitle">Personalización avanzada en tiempo real</p>
+      </div>
+
+      <div class="generator__grid">
+
+        <!-- LEFT: Controls -->
+        <div class="generator__controls">
+
+          <!-- TYPE TABS -->
+          <div class="card card--controls">
+            <div class="card__label"><i data-feather="database"></i> Tipo de Datos</div>
+            <div class="tabs" id="data-tabs" role="tablist" aria-label="Tipo de datos QR">
+              <button class="tab tab--active" role="tab" data-tab="url" aria-selected="true" id="tab-url">
+                <i data-feather="link"></i> URL
+              </button>
+              <button class="tab" role="tab" data-tab="text" aria-selected="false" id="tab-text">
+                <i data-feather="type"></i> Texto
+              </button>
+              <button class="tab" role="tab" data-tab="vcard" aria-selected="false" id="tab-vcard">
+                <i data-feather="user"></i> vCard
+              </button>
+              <button class="tab" role="tab" data-tab="wifi" aria-selected="false" id="tab-wifi">
+                <i data-feather="wifi"></i> WiFi
+              </button>
+            </div>
+
+            <!-- Tab panels -->
+            <div class="tab-panel tab-panel--active" id="panel-url" role="tabpanel" aria-labelledby="tab-url">
+              <div class="form-group">
+                <label class="form-label" for="input-url">URL o enlace</label>
+                <input class="form-input" type="url" id="input-url" placeholder="https://ejemplo.com" value="https://qreative.studio" autocomplete="off" />
+              </div>
+            </div>
+
+            <div class="tab-panel" id="panel-text" role="tabpanel" aria-labelledby="tab-text">
+              <div class="form-group">
+                <label class="form-label" for="input-text">Texto personalizado</label>
+                <textarea class="form-input form-textarea" id="input-text" placeholder="Escribe cualquier texto aquí..." rows="4"></textarea>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="panel-vcard" role="tabpanel" aria-labelledby="tab-vcard">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="vcard-name">Nombre</label>
+                  <input class="form-input" type="text" id="vcard-name" placeholder="Juan García" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="vcard-org">Empresa</label>
+                  <input class="form-input" type="text" id="vcard-org" placeholder="Mi Empresa S.A." />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="vcard-phone">Teléfono</label>
+                  <input class="form-input" type="tel" id="vcard-phone" placeholder="+52 55 1234 5678" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="vcard-email">Email</label>
+                  <input class="form-input" type="email" id="vcard-email" placeholder="juan@empresa.com" />
+                </div>
+                <div class="form-group form-group--full">
+                  <label class="form-label" for="vcard-url">Sitio Web</label>
+                  <input class="form-input" type="url" id="vcard-url" placeholder="https://juangarcia.com" />
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="panel-wifi" role="tabpanel" aria-labelledby="tab-wifi">
+              <div class="form-grid-2">
+                <div class="form-group form-group--full">
+                  <label class="form-label" for="wifi-ssid">Nombre de la red (SSID)</label>
+                  <input class="form-input" type="text" id="wifi-ssid" placeholder="MiRedWiFi" />
+                </div>
+                <div class="form-group form-group--full">
+                  <label class="form-label" for="wifi-pass">Contraseña</label>
+                  <input class="form-input" type="text" id="wifi-pass" placeholder="contraseña123" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="wifi-enc">Cifrado</label>
+                  <select class="form-select" id="wifi-enc">
+                    <option value="WPA">WPA/WPA2</option>
+                    <option value="WEP">WEP</option>
+                    <option value="nopass">Sin contraseña</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Opciones</label>
+                  <label class="form-checkbox">
+                    <input type="checkbox" id="wifi-hidden" />
+                    <span class="checkbox__custom"></span>
+                    <span>Red oculta</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STYLE OPTIONS -->
+          <div class="card card--controls">
+            <div class="card__label"><i data-feather="sliders"></i> Estilo Visual</div>
+
+            <!-- Dots style -->
+            <div class="style-section">
+              <div class="style-label">Módulos (Puntos)</div>
+              <div class="style-options" id="dots-style-group" role="group" aria-label="Estilo de módulos">
+                <button class="style-opt style-opt--active" data-type="dots" data-value="square" title="Cuadrado">
+                  <svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" fill="currentColor"/></svg>
+                </button>
+                <button class="style-opt" data-type="dots" data-value="dots" title="Circular">
+                  <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="currentColor"/></svg>
+                </button>
+                <button class="style-opt" data-type="dots" data-value="rounded" title="Redondeado">
+                  <svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" fill="currentColor"/></svg>
+                </button>
+                <button class="style-opt" data-type="dots" data-value="classy" title="Classy">
+                  <svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 4h7v7H4zm9 0h7v7h-7zM4 13h7v7H4z" fill="currentColor"/></svg>
+                </button>
+                <button class="style-opt" data-type="dots" data-value="classy-rounded" title="Classy Redondeado">
+                  <svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2" fill="currentColor"/><rect x="13" y="4" width="7" height="7" rx="2" fill="currentColor"/><rect x="4" y="13" width="7" height="7" rx="2" fill="currentColor"/></svg>
+                </button>
+                <button class="style-opt" data-type="dots" data-value="extra-rounded" title="Extra Redondeado">
+                  <svg width="24" height="24" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="9" fill="currentColor"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Corner square style -->
+            <div class="style-section">
+              <div class="style-label">Ojos (Esquinas)</div>
+              <div class="style-options" id="corners-style-group" role="group" aria-label="Estilo de ojos">
+                <button class="style-opt style-opt--active" data-type="corners" data-value="square" title="Cuadrado">
+                  <svg width="24" height="24" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+                </button>
+                <button class="style-opt" data-type="corners" data-value="dot" title="Circular">
+                  <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+                </button>
+                <button class="style-opt" data-type="corners" data-value="extra-rounded" title="Extra Redondeado">
+                  <svg width="24" height="24" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="6" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Colors -->
+            <div class="style-section">
+              <div class="style-label">Colores</div>
+              <div class="color-controls">
+                <div class="color-control">
+                  <label class="form-label" for="color-dots">Módulos</label>
+                  <div class="color-picker-wrap">
+                    <input type="color" class="color-picker" id="color-dots" value="#914FFF" />
+                    <input type="text" class="color-text" id="color-dots-text" value="#914FFF" maxlength="7" aria-label="Color módulos hex" />
+                  </div>
+                </div>
+                <div class="color-control">
+                  <label class="form-label" for="color-bg">Fondo</label>
+                  <div class="color-picker-wrap">
+                    <input type="color" class="color-picker" id="color-bg" value="#1a161f" />
+                    <input type="text" class="color-text" id="color-bg-text" value="#1a161f" maxlength="7" aria-label="Color fondo hex" />
+                  </div>
+                </div>
+                <div class="color-control">
+                  <label class="form-label" for="color-corner">Ojos</label>
+                  <div class="color-picker-wrap">
+                    <input type="color" class="color-picker" id="color-corner" value="#3B7BF4" />
+                    <input type="text" class="color-text" id="color-corner-text" value="#3B7BF4" maxlength="7" aria-label="Color ojos hex" />
+                  </div>
+                </div>
+                <div class="color-control">
+                  <label class="form-label" for="qr-correction">Corrección</label>
+                  <select class="form-select" id="qr-correction">
+                    <option value="L">L — 7%</option>
+                    <option value="M" selected>M — 15%</option>
+                    <option value="Q">Q — 25%</option>
+                    <option value="H">H — 30%</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- GRADIENTE ── ── ── ── ── ── ── ── ── ── ── -->
+            <div class="style-section">
+              <div class="gradient-toggle-wrap">
+                <label class="gradient-toggle" for="gradient-enabled">
+                  <input type="checkbox" id="gradient-enabled" />
+                  <span class="toggle-track">
+                    <span class="toggle-thumb"></span>
+                  </span>
+                  <span class="toggle-label">Gradiente de color</span>
+                </label>
+                <span class="gradient-badge" id="gradient-badge">OFF</span>
+              </div>
+
+              <div class="gradient-panel" id="gradient-panel">
+
+                <!-- Preview bar -->
+                <div class="gradient-preview" id="gradient-preview"></div>
+
+                <!-- Color pickers -->
+                <div class="gradient-colors">
+                  <div class="color-control" style="flex:1">
+                    <label class="form-label" for="grad-color-start">Inicio</label>
+                    <div class="color-picker-wrap">
+                      <input type="color" class="color-picker" id="grad-color-start" value="#914FFF" />
+                      <input type="text"  class="color-text"  id="grad-color-start-text" value="#914FFF" maxlength="7" />
+                    </div>
+                  </div>
+                  <div class="gradient-arrow">→</div>
+                  <div class="color-control" style="flex:1">
+                    <label class="form-label" for="grad-color-end">Fin</label>
+                    <div class="color-picker-wrap">
+                      <input type="color" class="color-picker" id="grad-color-end" value="#3B7BF4" />
+                      <input type="text"  class="color-text"  id="grad-color-end-text" value="#3B7BF4" maxlength="7" />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Type -->
+                <div>
+                  <div class="style-label" style="margin-bottom:8px">Tipo</div>
+                  <div class="gradient-type-row" id="gradient-type-group">
+                    <button class="gradient-type-btn gradient-type-btn--active" data-grad-type="linear">
+                      <i data-feather="minus"></i> Lineal
+                    </button>
+                    <button class="gradient-type-btn" data-grad-type="radial">
+                      <i data-feather="circle"></i> Radial
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Angle — only for linear -->
+                <div id="gradient-angle-wrap">
+                  <div class="style-label" style="margin-bottom:8px">Ángulo</div>
+                  <div class="gradient-angle-row" id="gradient-angle-group">
+                    <button class="gradient-angle-btn gradient-angle-btn--active" data-angle="0">0°</button>
+                    <button class="gradient-angle-btn" data-angle="45">45°</button>
+                    <button class="gradient-angle-btn" data-angle="90">90°</button>
+                    <button class="gradient-angle-btn" data-angle="135">135°</button>
+                    <button class="gradient-angle-btn" data-angle="180">180°</button>
+                    <button class="gradient-angle-btn" data-angle="225">225°</button>
+                    <button class="gradient-angle-btn" data-angle="270">270°</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Logo upload -->
+            <div class="style-section">
+              <div class="style-label">Logo / Imagen Central</div>
+              <div class="logo-upload" id="logo-upload-zone">
+                <div class="logo-upload__preview" id="logo-preview-container" style="display:none;">
+                  <img id="logo-preview-img" src="" alt="Logo preview" />
+                  <button class="logo-upload__remove" id="logo-remove-btn" title="Eliminar logo">
+                    <i data-feather="x"></i>
+                  </button>
+                </div>
+                <div class="logo-upload__placeholder" id="logo-placeholder">
+                  <i data-feather="upload-cloud"></i>
+                  <span>Arrastra tu logo o haz clic</span>
+                  <small>PNG, SVG, JPG — Max 2MB</small>
+                </div>
+                <input type="file" id="logo-file-input" accept="image/*" hidden aria-label="Subir logo" />
+              </div>
+              <div class="logo-options" id="logo-options" style="display:none;">
+                <div class="form-group">
+                  <label class="form-label" for="logo-size">Tamaño del logo: <span id="logo-size-val">40</span>%</label>
+                  <input type="range" class="form-range" id="logo-size" min="10" max="60" value="40" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Size -->
+            <div class="style-section">
+              <div class="style-label">Tamaño de salida</div>
+              <div class="size-options" id="size-options-group" role="group" aria-label="Tamaño QR">
+                <button class="size-opt" data-size="256">256px</button>
+                <button class="size-opt" data-size="512">512px</button>
+                <button class="size-opt size-opt--active" data-size="1024">1024px</button>
+                <button class="size-opt" data-size="2048">2048px</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Preview -->
+        <div class="generator__preview">
+          <div class="card card--preview">
+            <div class="preview__header">
+              <div class="preview__title"><i data-feather="eye"></i> Vista Previa en Tiempo Real</div>
+              <div class="preview__badge" id="preview-status">
+                <span class="status-dot status-dot--active"></span> En vivo
+              </div>
+            </div>
+
+            <div class="preview__canvas-wrap" id="qr-canvas-wrap">
+              <div id="qr-canvas"></div>
+            </div>
+
+            <!-- Scan validation -->
+            <div class="scan-validation">
+              <div class="scan-validation__header">
+                <i data-feather="shield-check"></i>
+                <span>Validación de Escaneo</span>
+                <span id="scan-score" class="scan-score">—</span>
+              </div>
+              <div class="scan-bar-wrap">
+                <div class="scan-bar" id="scan-bar">
+                  <div class="scan-bar__fill" id="scan-bar-fill" style="width:0%"></div>
+                </div>
+                <span id="scan-bar-label" class="scan-bar__label">Generando QR...</span>
+              </div>
+              <div class="scan-checks" id="scan-checks">
+                <div class="scan-check" id="check-content"><i data-feather="circle"></i> Contenido válido</div>
+                <div class="scan-check" id="check-contrast"><i data-feather="circle"></i> Contraste óptimo</div>
+                <div class="scan-check" id="check-size"><i data-feather="circle"></i> Tamaño adecuado</div>
+                <div class="scan-check" id="check-correction"><i data-feather="circle"></i> Corrección de error</div>
+              </div>
+            </div>
+
+            <!-- Download buttons -->
+            <div class="download-actions">
+              <div class="download-actions__label"><i data-feather="download-cloud"></i> Exportar como</div>
+              <div class="download-buttons">
+                <button class="btn btn--download" id="btn-png" title="Descargar PNG">
+                  <i data-feather="image"></i>
+                  <span>PNG</span>
+                  <small>Raster</small>
+                </button>
+                <button class="btn btn--download" id="btn-svg" title="Descargar SVG">
+                  <i data-feather="code"></i>
+                  <span>SVG</span>
+                  <small>Vectorial</small>
+                </button>
+                <button class="btn btn--download" id="btn-pdf" title="Descargar PDF">
+                  <i data-feather="file-text"></i>
+                  <span>PDF</span>
+                  <small>Impresión</small>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── FEATURES ───────────── -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">¿Por qué <span class="text--gradient">Qreative Studio</span>?</h2>
+        <p class="section__subtitle">Herramientas de nivel enterprise, completamente gratuitas</p>
+      </div>
+      <div class="features__grid">
+        <div class="feature-card">
+          <div class="feature-card__icon"><i data-feather="zap"></i></div>
+          <h3 class="feature-card__title">Generación Instantánea</h3>
+          <p class="feature-card__desc">QR actualizado en tiempo real conforme escribes. Sin tiempos de espera ni recargas de página.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i data-feather="sliders"></i></div>
+          <h3 class="feature-card__title">Personalización Total</h3>
+          <p class="feature-card__desc">Módulos, ojos, colores, logos y tamaños. Crea QRs únicos que reflejen tu identidad de marca.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i data-feather="shield"></i></div>
+          <h3 class="feature-card__title">Validación de Calidad</h3>
+          <p class="feature-card__desc">Análisis en tiempo real de contraste, corrección de error y escaneabilidad antes de descargar.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i data-feather="download-cloud"></i></div>
+          <h3 class="feature-card__title">Multi-Formato</h3>
+          <p class="feature-card__desc">Exporta en PNG de alta resolución, SVG vectorial para escala infinita, o PDF listo para imprimir.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i data-feather="wifi"></i></div>
+          <h3 class="feature-card__title">Datos Estructurados</h3>
+          <p class="feature-card__desc">URL, texto libre, tarjetas vCard para contactos y configuraciones WiFi. Todo en un solo lugar.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i data-feather="lock"></i></div>
+          <h3 class="feature-card__title">100% Privado</h3>
+          <p class="feature-card__desc">Toda la generación ocurre en tu navegador. Tus datos nunca salen de tu dispositivo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── FORMATS TABLE ───────────── -->
+  <section class="formats-section" id="formats">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Especificaciones <span class="text--gradient">Técnicas</span></h2>
+        <p class="section__subtitle">Todos los formatos de exportación comparados</p>
+      </div>
+      <div class="table-wrap">
+        <table class="formats-table" role="table" aria-label="Tabla de formatos de exportación">
+          <thead>
+            <tr>
+              <th>Formato</th>
+              <th>Tipo</th>
+              <th>Resolución</th>
+              <th>Transparencia</th>
+              <th>Ideal Para</th>
+              <th>Tamaño Aprox.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="format-badge format-badge--png">PNG</span></td>
+              <td>Raster</td>
+              <td>Hasta 2048×2048 px</td>
+              <td><span class="badge badge--yes">✓ Sí</span></td>
+              <td>Web, redes sociales, emails</td>
+              <td>~50–500 KB</td>
+            </tr>
+            <tr>
+              <td><span class="format-badge format-badge--svg">SVG</span></td>
+              <td>Vectorial</td>
+              <td>Infinita (escalable)</td>
+              <td><span class="badge badge--yes">✓ Sí</span></td>
+              <td>Diseño, impresión, desarrollo web</td>
+              <td>~10–80 KB</td>
+            </tr>
+            <tr>
+              <td><span class="format-badge format-badge--pdf">PDF</span></td>
+              <td>Documento</td>
+              <td>Vectorial embebido</td>
+              <td><span class="badge badge--no">✗ No</span></td>
+              <td>Impresión, presentaciones, docs</td>
+              <td>~20–200 KB</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── FAQ ───────────── -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">Preguntas <span class="text--gradient">Frecuentes</span></h2>
+        <p class="section__subtitle">Todo lo que necesitas saber</p>
+      </div>
+      <div class="faq__list" id="faq-list">
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            <span>¿Los QR generados tienen algún límite de uso?</span>
+            <i data-feather="chevron-down" class="faq-item__icon"></i>
+          </button>
+          <div class="faq-item__answer">
+            <p>No. Los códigos QR generados en Qreative Studio son completamente tuyos, sin restricciones, expiraciones ni marcas de agua. Puedes usarlos en proyectos comerciales o personales sin limitación alguna.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            <span>¿Mis datos son enviados a algún servidor?</span>
+            <i data-feather="chevron-down" class="faq-item__icon"></i>
+          </button>
+          <div class="faq-item__answer">
+            <p>Absolutamente no. La generación del QR ocurre 100% en tu navegador (client-side). Ningún dato, URL, texto ni imagen que introduzcas es transmitido a ningún servidor externo. Tu privacidad está garantizada.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            <span>¿Qué tamaño de logo es recomendable?</span>
+            <i data-feather="chevron-down" class="faq-item__icon"></i>
+          </button>
+          <div class="faq-item__answer">
+            <p>El logo no debe superar el 30-40% del área del QR para garantizar que los lectores puedan escanear correctamente. Recomendamos activar la corrección de error nivel H (30%) cuando uses logos, ya que esto oculta parte de los módulos de datos.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            <span>¿Cuál es la diferencia entre PNG y SVG?</span>
+            <i data-feather="chevron-down" class="faq-item__icon"></i>
+          </button>
+          <div class="faq-item__answer">
+            <p>PNG es un formato raster (basado en píxeles) ideal para uso digital. SVG es vectorial y puede escalarse a cualquier tamaño sin pérdida de calidad, siendo perfecto para impresión en vallas, lonas y folletos. Para uso general en web, PNG a 1024px es más que suficiente.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            <span>¿Qué significan los niveles de corrección de error?</span>
+            <i data-feather="chevron-down" class="faq-item__icon"></i>
+          </button>
+          <div class="faq-item__answer">
+            <p><strong>L (7%)</strong>: Menor redundancia, QR más limpio y compacto. Ideal cuando el entorno de escaneo es controlado. <strong>M (15%)</strong>: Balance estándar recomendado. <strong>Q (25%)</strong>: Mayor tolerancia a daños. <strong>H (30%)</strong>: Máxima corrección, esencial cuando el QR tiene un logo superpuesto.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── FOOTER ───────────── -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="header__logo" aria-label="Qreative Studio">
+          <div class="logo__icon">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <rect x="2" y="2" width="11" height="11" rx="2" fill="url(#grad-footer)"/>
+              <rect x="19" y="2" width="11" height="11" rx="2" fill="url(#grad-footer)"/>
+              <rect x="2" y="19" width="11" height="11" rx="2" fill="url(#grad-footer)"/>
+              <rect x="19" y="19" width="5" height="5" rx="1" fill="url(#grad-footer)"/>
+              <rect x="26" y="19" width="5" height="5" rx="1" fill="url(#grad-footer)"/>
+              <rect x="19" y="26" width="5" height="5" rx="1" fill="url(#grad-footer)"/>
+              <defs>
+                <linearGradient id="grad-footer" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#914FFF"/>
+                  <stop offset="100%" stop-color="#3B7BF4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="logo__text">Qreative<span class="logo__accent">Studio</span></span>
+        </a>
+        <p class="footer__tagline">Ingeniería QR de última generación.</p>
+      </div>
+      <div class="footer__copy">
+        <p>© 2026 Qreative Studio · ORMOQ Engineering · Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <!--
+    Formulario oculto para descargas — el navegador sigue la respuesta del servidor
+    con Content-Disposition: attachment y respeta el nombre de archivo en todos los browsers.
+    Los valores de data, ext y filename se rellenan desde main.js antes del submit.
+  -->
+  <form
+    id="dl-form"
+    method="POST"
+    action="/api/download"
+    style="display:none;"
+    aria-hidden="true"
+  >
+    <input type="hidden" name="data"     id="dl-data"     value="" />
+    <input type="hidden" name="ext"      id="dl-ext"      value="" />
+    <input type="hidden" name="filename" id="dl-filename" value="" />
+  </form>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+
+  <!-- jsPDF for real PDF export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- Scripts -->
+  <script>feather.replace();</script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
