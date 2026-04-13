@@ -113,6 +113,6 @@ Las contribuciones son lo que hacen que la comunidad de código abierto sea un l
 
 ## 📄 Licencia y Créditos
 
-Distribuido bajo la Licencia MIT. Desarrollado con ❤️ por **ORMOQ Engineering**.
+Distribuido bajo la Licencia MIT. Desarrollado con ❤️ por **AndresSY**.
 
 *Lógica QR personalizada impulsada por `qr-code-styling`.*
